@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let number = prompt("Введить 3 значне число");
+      let numberString = String(number);
+      let numberArray = numberString.split("");
+      if (
+        numberArray[0] == numberArray[1] &&
+        numberArray[1] == numberArray[2] &&
+        numberArray[0] == numberArray[2]
+      ) {
+        alert(`Правда, усі цифри однакові`);
+      } else if (
+        numberArray[0] == numberArray[1] ||
+        numberArray[1] == numberArray[2] ||
+        numberArray[0] == numberArray[2]
+      ) {
+        alert(`Серед цифр, є однакові цифри`);
+      }
+    </script>
+  </body>
+</html>

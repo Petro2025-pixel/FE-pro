@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let YearOfBirth = prompt("Введить Ваш рік народження:");
+      if (YearOfBirth === null) {
+        alert(`Шкода, що Ви не захотіли ввести свой рік народження`);
+      }
+      let CityOfLiving = prompt("Введить в якому місті Ви живете:");
+      if (CityOfLiving === null) {
+        alert(`Шкода, що Ви не захотіли ввести своє місто`);
+      }
+      let PreferOfSport = prompt("Введить Ваш улюблений вид спорту:");
+      if (PreferOfSport === null) {
+        alert(`Шкода, що Ви не захотіли ввести свій улюбленний спорт`);
+      }
+      alert(`Ваш вік: ${2025 - YearOfBirth} років`);
+      if (
+        CityOfLiving == "Київ" ||
+        CityOfLiving == "Вашингтон" ||
+        CityOfLiving == "Лондон"
+      ) {
+        if (CityOfLiving == "Київ") {
+          console.log(CityOfLiving);
+          alert(`Ти живеш у столиці України`);
+        }
+        if (CityOfLiving == "Вашингтон") {
+          console.log(CityOfLiving);
+          alert(`Ти живеш у столиці США`);
+        }
+        if (CityOfLiving == "Лондон") {
+          console.log(CityOfLiving);
+          alert(`Ти живеш у столиці Великобританії`);
+        }
+      } else {
+        console.log(CityOfLiving);
+        alert(`Ти живеш в ${CityOfLiving}`);
+      }
+      if (
+        PreferOfSport == "Футбол" ||
+        PreferOfSport == "Бокс" ||
+        PreferOfSport == "Прижки у висоту"
+      ) {
+        if (PreferOfSport == "Футбол") {
+          console.log(PreferOfSport);
+          alert(`Круто! Хочеш стати як Мессі?`);
+        }
+        if (PreferOfSport == "Бокс") {
+          console.log(PreferOfSport);
+          alert(`Круто! Хочеш стати як Усик?`);
+        }
+        if (PreferOfSport == "Прижки у висоту") {
+          console.log(PreferOfSport);
+          alert(`Круто! Хочеш стати як Магучих?`);
+        }
+      }
+    </script>
+  </body>
+</html>
