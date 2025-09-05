@@ -10,10 +10,10 @@
       let integerNumber = prompt("Введить ціле число");
       if (integerNumber > 1) {
         for (let i = 2; i < integerNumber; i++) {
-          integerNumber % i == 0
-            ? console.log("число ", integerNumber, " составне")
-            : console.log("число ", integerNumber, " просте");
-          break;
+          if (integerNumber % i === 0) {
+            console.log("число ", integerNumber, " составне");
+            break;
+          } else console.log("число ", integerNumber, " просте");
         }
       } else console.log("число повинно бути більше 1");
     </script>
