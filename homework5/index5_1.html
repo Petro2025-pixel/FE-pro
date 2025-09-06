@@ -7,9 +7,9 @@
   </head>
   <body>
     <script>
-      let result = 0;
+      let result = "";
       for (let i = 20; i <= 30; i = i + 0.5) {
-        result == "0" ? (result = i) : (result = result + " " + i);
+        result = result + (result == "" ? i : " " + i);
       }
       console.log(result);
     </script>

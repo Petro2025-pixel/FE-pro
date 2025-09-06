@@ -8,14 +8,21 @@
   <body>
     <script>
       let integerNumber = prompt("Введить ціле число");
-      if (integerNumber > 1) {
-        for (let i = 2; i < integerNumber; i++) {
-          if (integerNumber % i === 0) {
-            console.log("число ", integerNumber, " составне");
-            break;
-          } else console.log("число ", integerNumber, " просте");
+      if (integerNumber <= 1) {
+        console.log("число повинно бути більше 1");
+      }
+      let primeNumber = integerNumber > 1;
+      for (let i = 2; i <= Math.sqrt(integerNumber); i = i + 1) {
+        if (integerNumber % i === 0) {
+          primeNumber = false;
+          break;
+        } else {
+          primeNumber = true;
         }
-      } else console.log("число повинно бути більше 1");
+      }
+      primeNumber
+        ? console.log("число ", integerNumber, " просте")
+        : console.log("число ", integerNumber, " составне");
     </script>
   </body>
 </html>
