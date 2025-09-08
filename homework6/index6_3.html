@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let telefonBook = [
+        {
+          name: "Bohdan",
+          telefonNumber: "0676612345",
+          e_mail: "bohdan@gmail.com",
+        },
+        {
+          name: "Olena",
+          telefonNumber: "0956697890",
+          e_mail: "anna@gmail.com",
+        },
+      ];
+
+      let toDo = prompt(
+        "Enter prefer action: 0-find contact, 1-add new contact "
+      );
+
+      switch (toDo) {
+        case "0": {
+          let lookingName = prompt("Enter Name what you looking for:");
+          let found = false;
+
+          for (let i = 0; i < telefonBook.length; i++) {
+            if (telefonBook[i].name === lookingName) {
+              for (let key in telefonBook[i]) {
+                console.log(key, ":", telefonBook[i][key]);
+              }
+              found = true;
+              break;
+            }
+          }
+
+          if (!found) {
+            console.log("Contact not found");
+          }
+          break;
+        }
+
+        case "1": {
+          let newPerson = { name: "", telefonNumber: "", e_mail: "" };
+
+          for (let key in newPerson) {
+            newPerson[key] = prompt(`Enter ${key}:`);
+          }
+
+          telefonBook.push(newPerson);
+
+          console.log("New contact added:");
+          for (let key in newPerson) {
+            console.log(key, ":", newPerson[key]);
+          }
+          break;
+        }
+
+        default:
+          console.log("Unknown action");
+      }
+
+      for (let i = 0; i < telefonBook.length; i++) {
+        console.log(
+          i,
+          telefonBook[i].name,
+          telefonBook[i].telefonNumber,
+          telefonBook[i].e_mail
+        );
+      }
+    </script>
+  </body>
+</html>

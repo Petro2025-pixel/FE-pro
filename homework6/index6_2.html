@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const numbers = [1, 3, 6, 5, 8, 5, 12, 10, 25, 100];
+      let evenNumbers = [];
+      let j = 0;
+
+      for (let i = 0; i < numbers.length; i++) {
+        if (numbers[i] % 2 === 0) {
+          evenNumbers[j] = numbers[i];
+          console.log(evenNumbers[j]);
+          j++;
+        }
+      }
+    </script>
+  </body>
+</html>
