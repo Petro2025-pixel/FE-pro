@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const mixedArray = [1, "hello", 3, true, 7, 2, " world"];
+
+      function average(inputArray) {
+        let sum = 0;
+        let count = 0;
+
+        for (let i = 0; i < inputArray.length; i++) {
+          if (typeof inputArray[i] === "number") {
+            sum = sum + inputArray[i];
+            count++;
+          }
+        }
+
+        if (count === 0) return 0;
+        return sum / count;
+      }
+
+      console.log("Average =", average(mixedArray));
+    </script>
+  </body>
+</html>

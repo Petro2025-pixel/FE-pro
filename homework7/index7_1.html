@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let inputString = prompt("Enter a string:");
+      let count = Number(prompt("Enter number of letters:"));
+
+      let letters = [];
+      for (let i = 0; i < count; i++) {
+        letters[i] = prompt(`Enter a letter ${i + 1}:`);
+      }
+
+      function func(str, letters) {
+        let newString = str;
+        for (let letter of letters) {
+          newString = newString.replaceAll(letter, "");
+        }
+        return newString;
+      }
+
+      let result = func(inputString, letters);
+
+      console.log("Result string:", result);
+    </script>
+  </body>
+</html>

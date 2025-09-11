@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const input = "QA is cool!";
+
+      let j = 0;
+
+      for (let i = 0; i < input.length - 1; i++) {
+        if (
+          (input[i] === "Q" || input[i] === "q") &&
+          (input[i + 1] === "A" || input[i + 1] === "a")
+        ) {
+          j++;
+        }
+      }
+
+      console.log(`number of QA (or qa) in the string: ${input} is ${j}`);
+    </script>
+  </body>
+</html>
