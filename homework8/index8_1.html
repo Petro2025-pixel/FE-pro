@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function createSum() {
+        let summ = 0;
+        return function (a) {
+          summ = summ + a;
+          return summ;
+        };
+      }
+      const sum = createSum();
+      while (true) {
+        let inputNumber = prompt("Enter number (or Cancel to quit):");
+
+        if (inputNumber === null) {
+          alert("Quit");
+          break;
+        }
+
+        let number = Number(inputNumber);
+
+        if (isNaN(number)) {
+          alert("Please, enter a valid number");
+          continue;
+        }
+
+        let result = sum(number);
+        console.log(result);
+        alert(`Sum is: ${result}`);
+      }
+    </script>
+  </body>
+</html>

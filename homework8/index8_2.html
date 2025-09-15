@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function createMultiply(a) {
+        return function (b) {
+          return a * b;
+        };
+      }
+      while (true) {
+        let inputNumberA = prompt("Enter number A (or Cancel to quit):");
+        let inputNumberB = prompt("Enter number B (or Cancel to quit):");
+
+        if (inputNumberA === null || inputNumberB === null) {
+          alert("Quit");
+          break;
+        }
+
+        let numberA = Number(inputNumberA);
+        let numberB = Number(inputNumberB);
+
+        if (isNaN(numberA) || isNaN(numberB)) {
+          alert("Please, enter valid numbers");
+          continue;
+        }
+
+        let result = createMultiply(numberA)(numberB);
+        console.log(result);
+        alert(`Result of multiply is: ${result}`);
+      }
+    </script>
+  </body>
+</html>

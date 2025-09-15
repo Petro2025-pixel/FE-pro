@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function maximum() {
+        let count = 0;
+        return function () {
+          count = count + 1;
+          return count;
+        };
+      }
+
+      const max = maximum();
+      let number;
+      let lastValid = null;
+
+      while (true) {
+        let inputNumber = prompt("Enter number, more than 100:");
+        number = Number(inputNumber);
+
+        if (isNaN(number)) {
+          break;
+        }
+
+        if (number <= 100) {
+          lastValid = number;
+          alert("Number must be > 100 to exit, try again");
+        } else {
+          lastValid = number;
+          break;
+        }
+
+        lastValid = number;
+
+        let attempt = max();
+        if (attempt === 10) {
+          break;
+        }
+      }
+
+      console.log(lastValid);
+      alert(`Last valid number is: ${lastValid}`);
+    </script>
+  </body>
+</html>
