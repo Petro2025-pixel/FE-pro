@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let ladder = {
+        counter: 0,
+        up: function () {
+          this.counter = this.counter + 1;
+          return this;
+        },
+        down: function () {
+          this.counter = this.counter - 1;
+          return this;
+        },
+        showStep: function () {
+          console.log(this.counter);
+          return this;
+        },
+      };
+
+      ladder.up().up().down().showStep();
+    </script>
+  </body>
+</html>
