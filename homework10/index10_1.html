@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let company = {
+        sales: [
+          { name: "John", salary: 1000 },
+          { name: "Alice", salary: 600 },
+        ],
+        developments: {
+          web: [
+            { name: "Peter", salary: 2000 },
+            { name: "Alex", salary: 1800 },
+          ],
+          internals: [{ name: "Jack", salary: 1300 }],
+        },
+      };
+
+      function salarySum(inputArray) {
+        let sum = 0;
+        for (let i = 0; i < inputArray.length; i = i + 1) {
+          sum = sum + inputArray[i].salary;
+        }
+        return sum;
+      }
+
+      function getTotalSalaries(obj) {
+        if (Array.isArray(obj)) {
+          return salarySum(obj);
+        } else {
+          let sum = 0;
+          for (let key in obj) {
+            sum = sum + getTotalSalaries(obj[key]);
+          }
+          return sum;
+        }
+      }
+
+      console.log(getTotalSalaries(company));
+    </script>
+  </body>
+</html>
