@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homework12_3</title>
+    <link rel="stylesheet" href="./style12_3.css" />
+    <script src="./main12_3.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="wrapper">
+        <p>
+          Створіть HTML-сторінку, яка містить список завдань (to-do list) з
+          можливістю додавання нових завдань.
+        </p>
+        <p>
+          Ваше ціль - використовуючи делегування подій, створити обробник подій
+          для списку завдань, який дозволить видаляти завдання при кліку на них.
+        </p>
+        <p>
+          Покроковий план:</p>
+          <ul>
+            <li>Створіть HTML-елементи: список завдань ul, текстове
+          поле для вводу нових завдань та кнопку для додавання.</li>
+            <li>Додайте обробник
+          подій до списку завдань ul, використовуючи делегування.</li>
+            <li>При кліку на
+          будь-якій кнопці видалення, видаліть цей пункт.</li>
+            <li>Додайте можливість
+          вводити нові завдання у текстове поле і додавати їх до списку за
+          допомогою кнопки.</li>
+          </ul>    
+        </p>
+      </div>
+      <h1>to-do list</h1>
+        <ul id="todo_list"></ul>
+             <div class="todo_set">
+        <input type="text" placeholder="Додати нове завдання" id="myInput" /><button class="button_add">Add task</button>
+      </div>
+    </div>
+  </body>
+</html>
