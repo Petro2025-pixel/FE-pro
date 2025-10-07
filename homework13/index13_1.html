@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homework12_3</title>
+    <link rel="stylesheet" href="./style13_1.css" />
+    <script src="./main13_1.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="wrapper">
+        <h1>Валідація з RegEx</h1>
+        <p>
+          Доробити валідацію для надсилання повідомлення з використанням
+          регулярних виразів:
+        </p>
+        <p>Поля:</p>
+        <ul>
+          <li>Name - обов'язкове текстове поле</li>
+          <li>Message - текстове поле не менше 5 символів</li>
+          <li>
+            Phone number - обов'язкове поле типу phone. З початком на +380
+          </li>
+          <li>Email - email обов'язково повинен мати @ та крапку</li>
+        </ul>
+        <p>
+          Після відправки, в консоль відображаємо дані, які ввів користувач.
+        </p>
+        <p>Під час помилки показувати її під полем.</p>
+      </div>
+      <div class = "form-shape">
+        <form action="" >
+          <div class="welcome-text">
+            <p>We would like to help you</p>
+          </div>
+
+          <div>
+            <label for="name"></label>
+            <input type="test" id="name" name="name" placeholder = "Name"/>
+            <span id="message-name"></span>
+          </div>
+
+          <div>
+            <label for="message"></label>
+            <input type="text" id="message" name="message" placeholder = "Message"/>
+            <span id="message-message"></span>
+          </div>
+
+          <div class="answer-box">
+            <p>How to answer you?</p>
+          </div>
+
+          <div>
+            <label for="phone"></label>
+            <input type="tel" id="phone" name="phone"  placeholder ="Phone number"/>
+            <span id="message-phone"></span>
+          </div>
+
+          <div>
+            <label for="email"></label>
+            <input type="email" id="email" name="email" placeholder="E-mail"/>
+            <span id="message-mail"></span>
+          </div>
+
+          <input type="submit" id="submit" value="Send message"></input>
+        </form>
+     
+      </div>
+    </div>
+  </body>
+</html>
