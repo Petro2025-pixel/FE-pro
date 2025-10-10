@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homework14_1</title>
+    <link rel="stylesheet" href="./style14_1.css" />
+    <script src="./main14_1.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="wrapper">
+        <p>Пишемо свій слайдер зображень, який повинен:</p>
+        <ol>
+          <li>
+            Відображати зображення та кнопки Next, Prev з боків від зображення.
+          </li>
+          <li>При кліку на Next - показуємо наступне зображення.</li>
+          <li>При кліку на Prev - попереднє</li>
+          <li>
+            При досягненні останнього зображення - ховати кнопку Next.
+            Аналогічно з першим зображенням і кнопкою Prev
+          </li>
+          <li>Кількість слайдів може бути будь-якою</li>
+          <li>Додати можливість навігації через точки під слайдами</li>
+        </ol>
+      </div>
+      <div class="slider-wrapper">
+        <button class="btn-prev"><</button>
+        <div class="slider">
+          <div class="slide"></div>
+        </div>
+        <button class="btn-next">></button>
+        <p id="bullets_set"></p>
+      </div>
+    </div>
+  </body>
+</html>
