@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homework15_1</title>
+    <link rel="stylesheet" href="./style15_1.css" />
+    <script src="./main15_1.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="wrapper">
+        <p>Доробити TODO лист, в якому буде можливість:</p>
+        <p>- Додати завдання</p>
+        <p>- Видалити завдання</p>
+        <p>- Відзначити як виконану</p>
+        <p>- Усі дані повинні зберегтися після перезавантаження сторінки.</p>
+      </div>
+
+      <ul id="open-save">
+        <li><p>To Do list</p></li>
+        <li><button class="button_open">Open tasks</button></li>
+        <li><button class="button_save">Save tasks</button></li>
+      </ul>
+      <div class="todo_set">
+        <input
+          type="text"
+          placeholder="Додати нове завдання"
+          id="myInput"
+        /><button class="button_add">Add task</button>
+      </div>
+      <ul id="todo_list"></ul>
+    </div>
+  </body>
+</html>
