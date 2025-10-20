@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homework17_2</title>
+  </head>
+  <body>
+    <script>
+      class Coach {
+        constructor(name, specialization, rating) {
+          this.name = name;
+          this.specialization = specialization;
+          this.rating = rating;
+        }
+        displayInfo() {
+          console.log(
+            `Coach: ${this.name}, Specialisation: ${this.specialization}, Rating: ${this.rating}`
+          );
+        }
+      }
+      const coach1 = new Coach("John Doe", "Fitness", 4.7);
+      const coach2 = new Coach("Alice Smith", "Yoga", 4.9);
+      coach1.displayInfo();
+      coach2.displayInfo();
+    </script>
+  </body>
+</html>

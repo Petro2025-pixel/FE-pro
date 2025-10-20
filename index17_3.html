@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homework17_3</title>
+  </head>
+  <body>
+    <script>
+      class BankAccount {
+        constructor(initialBalance) {
+          this.balance = initialBalance;
+        }
+        getBalance() {
+          return this.balance;
+        }
+        deposit(amount) {
+          if (amount > 0) {
+            this.balance = this.balance + amount;
+          }
+        }
+        withdraw(amount) {
+          if (amount > 0 && this.balance >= amount) {
+            this.balance = this.balance - amount;
+          } else {
+            console.log("Помилка: замало коштів або неправильна сума.");
+          }
+        }
+      }
+
+      const account1 = new BankAccount(1000);
+      console.log(account1.getBalance());
+      account1.deposit(500);
+      console.log(account1.getBalance());
+      account1.withdraw(200);
+      console.log(account1.getBalance());
+    </script>
+  </body>
+</html>
