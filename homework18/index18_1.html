@@ -14,45 +14,46 @@
       <button id="stop" class="button_stop">Stop</button>
     </div>
     <script>
-      function Timer(targetElementId, initialMinutes, initialSeconds) {
-        const element = document.getElementById(targetElementId);
-        let isRunning = false;
-        let intervalId;
+      class Timer {
+        constructor(targetElementId, initialMinutes, initialSeconds) {
+          this.element = document.getElementById(targetElementId);
+          this.isRunning = false;
+          this.intervalId = null;
+          this.timeRemaining = (initialMinutes * 60 + initialSeconds) * 1000;
+          this.updateClockDisplay();
+        }
+        updateClockDisplay() {
+          const totalSeconds = Math.floor(this.timeRemaining / 1000);
+          const minutes = Math.floor(totalSeconds / 60)
+            .toString()
+            .padStart(2, "0");
+          const seconds = (totalSeconds % 60).toString().padStart(2, "0");
 
-        let timeRemaining = (initialMinutes * 60 + initialSeconds) * 1000;
+          this.element.textContent = `${minutes}:${seconds}`;
+        }
 
-        const updateClock = () => {
-          if (isRunning) {
-            if (timeRemaining < 1000) {
-              this.stop();
-              element.textContent = "00:00";
-              return;
-            }
+        tick = () => {
+          if (this.timeRemaining < 1000) {
+            this.stop();
+            this.element.textContent = "00:00";
+            return;
+          }
 
-            timeRemaining = timeRemaining - 1000;
+          this.timeRemaining = this.timeRemaining - 1000;
+          this.updateClockDisplay();
+        };
 
-            const totalSeconds = Math.floor(timeRemaining / 1000);
-            const minutes = Math.floor(totalSeconds / 60)
-              .toString()
-              .padStart(2, "0");
-            const seconds = (totalSeconds % 60).toString().padStart(2, "0");
-
-            element.textContent = `${minutes}:${seconds}`;
+        start = () => {
+          if (!this.isRunning) {
+            this.isRunning = true;
+            this.intervalId = setInterval(this.tick, 1000);
           }
         };
 
-        this.start = function () {
-          if (!isRunning) {
-            isRunning = true;
-            updateClock();
-            intervalId = setInterval(updateClock, 1000);
-          }
-        };
-
-        this.stop = function () {
-          if (isRunning) {
-            isRunning = false;
-            clearInterval(intervalId);
+        stop = () => {
+          if (this.isRunning) {
+            this.isRunning = false;
+            clearInterval(this.intervalId);
           }
         };
       }
