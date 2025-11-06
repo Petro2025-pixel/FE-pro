@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homework19_1</title>
+    <link rel="stylesheet" href="./style19_1.css" />
+  </head>
+  <body>
+    <div class="container wrapper">
+      <div id="vidgetMeteo">
+        <div id="div1">
+          <div id="date"></div>
+          <div id="clock"></div>
+        </div>
+        <div id="div2">
+          <div id="weather-info2"></div>
+          <div id="weather-info22"></div>
+        </div>
+        <div id="div3"><div id="weather-info3"></div></div>
+        <div id="div4">
+          <div id="oldDateClock"></div>
+          <button id="refresh" class="button_refresh">&#8635;</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const OPENWEATHER_API_KEY = "acafa41cca9f9ee3b1bbb16104cffa01";
+      const weatherDisplayDiv2 = document.getElementById("weather-info2");
+      const weatherDisplayDiv22 = document.getElementById("weather-info22");
+      const weatherDisplayDiv3 = document.getElementById("weather-info3");
+
+      function updateWeather() {
+        if ("geolocation" in navigator) {
+          navigator.geolocation.getCurrentPosition(
+            (position) => {
+              const lat = position.coords.latitude;
+              const lon = position.coords.longitude;
+
+              const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${OPENWEATHER_API_KEY}&units=metric&lang=en`; // 4. Выполнение запроса к OpenWeatherMap
+
+              fetch(apiUrl)
+                .then((response) => {
+                  if (!response.ok) {
+                    throw new Error("NetError or Error API");
+                  }
+                  return response.json();
+                })
+                .then((data) => {
+                  const temperature = data.main.temp;
+                  const temperFeels_like = data.main.feels_like;
+                  const clouds_all = data.clouds.all;
+                  const humidity = data.main.humidity;
+                  const pressure = data.main.pressure;
+                  const speed = data.wind.speed;
+                  const description = data.weather[0].description;
+                  const city = data.name;
+
+                  const iconCode = data.weather[0].icon;
+                  const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+                  const weatherIconHtml = `<img src="${iconUrl}" alt="${description}" class="weather-icon">`;
+                  const weatherTextHtml = `Weather ${city}: ${description}, ${Math.round(
+                    temperature
+                  )}°C (Feels like ${Math.round(
+                    temperFeels_like
+                  )}°C), Clouds: ${clouds_all}%`;
+                  weatherDisplayDiv2.innerHTML = `${weatherIconHtml}`;
+                  weatherDisplayDiv22.innerHTML = `${weatherTextHtml}`;
+                  weatherDisplayDiv3.innerHTML = `Humidity: ${humidity}%, Pressure:${pressure}hPa, Wind speed: ${speed}m/s`;
+                })
+                .catch((error) => {
+                  weatherDisplayDiv22.innerHTML = `Error to get weather: ${error.message}`;
+                  weatherDisplayDiv3.innerHTML = "";
+                });
+            },
+            (error) => {
+              let errorMessage = "Failed to obtain geolocation.";
+              switch (error.code) {
+                case error.PERMISSION_DENIED:
+                  errorMessage = "The user denied access to geolocation.";
+                  break;
+                case error.POSITION_UNAVAILABLE:
+                  errorMessage = "Location information is not available.";
+                  break;
+                case error.TIMEOUT:
+                  errorMessage = "Location request timed out.";
+                  break;
+              }
+              weatherDisplayDiv22.innerHTML = errorMessage;
+              weatherDisplayDiv3.innerHTML = "";
+            },
+            {
+              enableHighAccuracy: true,
+              timeout: 5000,
+              maximumAge: 0,
+            }
+          );
+        } else {
+          weatherDisplayDiv22.innerHTML =
+            "Geolocation is not supported by your browser.";
+          weatherDisplayDiv3.innerHTML = "";
+        }
+      }
+
+      function Clock(timeElementId, dateElementId, dayOfWeekElementId) {
+        const elementClock = document.getElementById(timeElementId);
+        const elementDate = document.getElementById(dateElementId);
+
+        let isRunning = false;
+        let intervalId;
+
+        function updateClock() {
+          if (isRunning) {
+            const now = new Date();
+
+            const day = now.getDate().toString().padStart(2, "0");
+            const month = (now.getMonth() + 1).toString().padStart(2, "0");
+            const year = now.getFullYear();
+
+            const dateOnly = now.toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "short",
+              day: "numeric",
+            });
+
+            const dayOfWeekString = now.toLocaleDateString("en-US", {
+              weekday: "short",
+            });
+
+            const combinedDateString = `${dateOnly} - ${dayOfWeekString}`;
+
+            const hours = now.getHours().toString().padStart(2, "0");
+            const minutes = now.getMinutes().toString().padStart(2, "0");
+            const seconds = now.getSeconds().toString().padStart(2, "0");
+            const timeString = `${hours}:${minutes}:${seconds}`;
+
+            elementDate.textContent = combinedDateString;
+            elementClock.textContent = timeString;
+          }
+        }
+
+        this.start = function () {
+          if (isRunning) {
+            return;
+          }
+          isRunning = true;
+          intervalId = setInterval(updateClock, 1000);
+          updateClock();
+        };
+
+        this.stop = function () {
+          if (isRunning) {
+            isRunning = false;
+            clearInterval(intervalId);
+          }
+        };
+      }
+      const myClock = new Clock("clock", "date", "dayOfWeek");
+
+      myClock.start();
+      updateWeather();
+
+      document.getElementById("refresh").addEventListener("click", () => {
+        const currentDate = document.getElementById("date").textContent;
+        const currentTime = document.getElementById("clock").textContent;
+
+        if (currentDate && currentTime) {
+          document.getElementById(
+            "oldDateClock"
+          ).textContent = `Last update: ${currentDate} ${currentTime}`;
+        } else {
+          document.getElementById("oldDateClock").textContent =
+            "Last update: Clock not ready";
+        }
+        updateWeather();
+      });
+    </script>
+  </body>
+</html>
