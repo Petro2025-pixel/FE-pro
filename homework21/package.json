@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "@babel/cli": "^7.28.3",
+    "@babel/core": "^7.28.5",
+    "bootstrap": "^5.3.8",
+    "jquery": "^3.7.1"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.28.5"
+  },
+
+"scripts": {
+  "build": "babel **.** --out-dir dist"
+  }
+}
