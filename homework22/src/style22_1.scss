@@ -1,0 +1,199 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+ul {
+    padding-left: 0px;
+}
+
+p {
+    font-size: 24px;
+    margin: 0;
+}
+
+input {
+    margin-right: 10px;
+}
+
+.container_ {
+    max-width: 1230px;
+    margin: 10px auto;
+    padding: 0 15px;
+
+    h1 {
+        text-align: center;
+    }
+
+    li {
+        font-size: 24px;
+    }
+}
+
+.wrapper {
+    border: 2px solid #464ba3;
+    padding: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.todo_set {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+#open-save {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    text-decoration: none;
+    list-style-type: none;
+    gap: 20px;
+
+    ul {
+        margin: 0;
+    }
+
+    li:nth-child(1) {
+        margin-right: 20%;
+        text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    }
+}
+
+#todo_list {
+    padding: 0;
+    margin: 0;
+
+    li {
+        display: flex;
+        justify-content: space-between;
+        border: 1px solid black;
+        border-radius: 6px;
+        margin-bottom: 7px;
+        align-items: center;
+        padding-left: 7px;
+    }
+
+    span {
+        width: 100%;
+        text-align: left;
+    }
+}
+
+#myInput {
+    width: 86%;
+    font-size: 16px;
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+
+.button_common {
+    display: flex;
+    width: 150px;
+    font-size: 16px;
+    vertical-align: middle;
+    text-align: center;
+    padding: 8px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    align-items: center;
+    justify-content: center;
+}
+
+.button_delete {
+    @extend .button_common;
+    background-color: #464ba3;
+    border: 2px solid #464ba3;
+
+    &:hover {
+        color: #464ba3;
+        cursor: pointer;
+        background: #fff;
+        border: 2px solid #464ba3;
+        transition: all 0.15s;
+    }
+}
+
+.button_add {
+    background-color: #236c0d;
+    border: 2px solid #236c0d;
+    width: 150px;
+    font-size: 16px;
+    vertical-align: middle;
+    text-align: center;
+    padding: 8px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+        color: #236c0d;
+        cursor: pointer;
+        background: #fff;
+        border: 2px solid #236c0d;
+        transition: all 0.15s;
+    }
+}
+
+.button_open {
+    @extend .button_common;
+    background-color: #b43625;
+    border: 2px solid #b43625;
+
+    &:hover {
+        color: #b43625;
+        cursor: pointer;
+        background: #fff;
+        border: 2px solid #b43625;
+        transition: all 0.15s;
+    }
+}
+
+.button_save {
+    @extend .button_common;
+    background-color: #107088;
+    border: 2px solid #107088;
+
+    &:hover {
+        color: #107088;
+        cursor: pointer;
+        background: #fff;
+        border: 2px solid #107088;
+        transition: all 0.15s;
+    }
+}
+
+.completed .task_text {
+    text-decoration: line-through;
+    color: #888;
+}
+
+.clickable-text {
+    cursor: pointer;
+    user-select: none;
+}
+
+.todo_checkbox {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 0.9em;
+    height: 0.9em;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    border-radius: 0.12em;
+    vertical-align: middle;
+
+    &:checked {
+        background-color: #0d6efd;
+        border-color: #0d6efd;
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3 6-6'/%3e%3c/svg%3e");
+        background-size: 100% 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+}
