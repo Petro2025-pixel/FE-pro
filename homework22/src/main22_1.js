@@ -1,6 +1,10 @@
-import './style22_1.scss';
+import $ from "jquery";
+import * as bootstrap from "bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-console.log('Webpack успішно скомпілював стилі та JS!');
+import "./style22_1.scss";
+
+console.log("Webpack успішно скомпілював стилі та JS!");
 /**
  * Отображает Bootstrap Alert с заданным текстом, типом (классом) и иконкой.
  * NOTE: Требует наличия элемента <div id="appAlert"> в HTML и SVG-спрайта Bootstrap Icons.
