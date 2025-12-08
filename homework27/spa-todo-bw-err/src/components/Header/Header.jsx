@@ -10,10 +10,10 @@ const Header = () => (
         <Link href='/'>Main</Link>
       </li>
       <li>
-        <Link href='/todos'>Todo list</Link>
+        <Link href='/contacts'>Contacts</Link>
       </li>
       <li>
-        <Link href='/contacts'>Contacts</Link>
+        <Link href='/about'>About</Link>
       </li>
     </ul>
     <ChangeButtonColor />

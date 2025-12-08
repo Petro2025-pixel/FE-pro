@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
-import Main from "./components/Main/Main";
+import About from "./components/About/About";
 import TodoList from "./components/TodoList/TodoList";
 import Contacts from "./components/Contacts/Contacts";
 import Footer from "./components/Footer/Footer";
@@ -24,9 +24,9 @@ function App() {
           <ErrorBoundary>
             <main>
               <Routes>
-                <Route path="/" element={<Main />} />
-                <Route path="/todos" element={<TodoList />} />
+                <Route path="/" element={<TodoList /> } />
                 <Route path="/contacts" element={<Contacts />} />
+                <Route path="/about" element={<About />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </main>
