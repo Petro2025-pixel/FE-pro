@@ -1,0 +1,158 @@
+
+:root {
+  --bg-color: #fcfaf7;
+  --text-color: #213547;
+  --card-bg: #ffffff;
+  --transition-speed: 0.3s;
+  --primary-color: #0d6efd;
+  --danger-color: #dc3545;
+}
+
+[data-theme='dark'] {
+  --bg-color: #1a1b1e;
+  --text-color: #e9ecef;
+  --card-bg: #2c2e33;
+}
+
+
+* {
+  transition: background-color var(--transition-speed) ease, 
+              color var(--transition-speed) ease, 
+              border-color var(--transition-speed) ease;
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--bg-color);
+}
+
+.app-container {
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+
+.custom-card {
+  background-color: var(--card-bg) !important;
+  color: var(--text-color) !important;
+  border: 1px solid rgba(128, 128, 128, 0.1) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.custom-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+}
+
+
+.nav-custom-link {
+  position: relative;
+  color: var(--text-color) !important;
+  font-weight: 500;
+  padding: 8px 15px !important;
+  text-decoration: none;
+}
+
+
+@media (min-width: 992px) {
+  .nav-custom-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 5px;
+    left: 50%;
+    background-color: var(--primary-color);
+    transition: all 0.3s ease-in-out;
+    transform: translateX(-50%);
+  }
+
+  .nav-custom-link:hover::after,
+  .nav-custom-link.active::after {
+    width: 70%;
+  }
+}
+
+
+@media (max-width: 991px) {
+  .nav-custom-link {
+    margin: 5px 0;
+    text-align: center;
+    border-radius: 8px;
+  }
+
+  .nav-custom-link.active {
+    background-color: rgba(13, 110, 253, 0.1);
+    color: var(--primary-color) !important;
+  }
+}
+
+
+.todo-actions .btn {
+  background-color: transparent !important;
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.todo-actions .btn-edit:hover {
+  background-color: var(--primary-color) !important;
+  color: white !important;
+}
+
+.todo-actions .btn-delete:hover {
+  background-color: var(--danger-color) !important;
+  color: white !important;
+}
+
+
+@media (max-width: 768px) {
+  .todo-actions .btn-edit {
+    background-color: var(--primary-color) !important;
+    color: white !important;
+  }
+  .todo-actions .btn-delete {
+    background-color: var(--danger-color) !important;
+    color: white !important;
+  }
+}
+
+
+.text-muted {
+  color: #6c757d !important;
+  opacity: 0.8;
+}
+
+
+.form-check-input {
+  cursor: pointer;
+  background-color: rgba(128, 128, 128, 0.2);
+  border-color: rgba(128, 128, 128, 0.3);
+}
+
+.form-check-input:checked {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+[data-theme='dark'] .btn-close {
+  filter: invert(1) grayscale(1) brightness(2);
+}
+
+
+.btn-close {
+  width: 1.2em;
+  height: 1.2em;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.btn-close:hover {
+  opacity: 1;
+}
