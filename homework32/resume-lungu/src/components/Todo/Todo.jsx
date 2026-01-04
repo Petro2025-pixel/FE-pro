@@ -71,7 +71,7 @@ const Todo = () => {
               <CardMedia component="img" image="./images/todo-saga-screenshot-1.png" alt="Desktop" />
             </Card>
             <Card sx={{ width: '180px', borderRadius: '20px', border: '4px solid #333', boxShadow: 10 }}>
-              <CardMedia component="img" image="./images/todo-saga-screenshot-2.png" alt="Mobile" />
+              <CardMedia component="img" image="./images/todo-mobile2.jpg" alt="Mobile" />
             </Card>
           </Grid>
         </Grid>

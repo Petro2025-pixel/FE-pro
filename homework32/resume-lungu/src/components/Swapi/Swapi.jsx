@@ -69,7 +69,7 @@ const Swapi = () => {
               <CardMedia component="img" image="./images/swapi-desktop.png" alt="Desktop" />
             </Card>
             <Card sx={{ width: '180px', borderRadius: '20px', border: '4px solid #333', boxShadow: 10 }}>
-              <CardMedia component="img" image="./images/swapi-mobile.png" alt="Mobile" />
+              <CardMedia component="img" image="./images/swapi-mobile.jpg" alt="Mobile" />
             </Card>
           </Grid>
         </Grid>
