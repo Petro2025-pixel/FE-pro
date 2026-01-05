@@ -62,7 +62,7 @@ const Resume = () => {
   return (
     <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
       <Paper elevation={4} sx={{ p: { xs: 2, md: 5 }, borderRadius: 4 }}>
-        {/* Header Section */}
+        
         <Box sx={{ textAlign: 'center', mb: 4 }}>
           <Typography variant="h2" component="h1" gutterBottom sx={{ fontWeight: 800 }}>
             {t.title}
@@ -74,7 +74,7 @@ const Resume = () => {
 
         <Divider sx={{ mb: 4 }} />
 
-        {/* Summary */}
+       
         <Box sx={{ mb: 4 }}>
           <Typography variant="h5" gutterBottom sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
             {t.summaryTitle}
@@ -84,7 +84,7 @@ const Resume = () => {
           </Typography>
         </Box>
 
-        {/* Technical Skills */}
+       
 <Box sx={{ mb: 4 }}>
   <Typography variant="h5" gutterBottom>
     {t.skillsTitle}
@@ -106,7 +106,7 @@ const Resume = () => {
   </Stack>
 </Box>
 
-        {/* Work Experience */}
+        
         <Box sx={{ mb: 4 }}>
           <Typography variant="h5" gutterBottom>
             {t.expTitle}
@@ -124,7 +124,7 @@ const Resume = () => {
           </List>
         </Box>
 
-        {/* Education */}
+      
         <Box sx={{ mb: 4 }}>
           <Typography variant="h5" gutterBottom>
             {t.eduTitle}
@@ -144,7 +144,6 @@ const Resume = () => {
 
         <Divider sx={{ mb: 3 }} />
 
-        {/* Languages & Additional Info */}
         <Box>
           <Typography variant="h6" sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
             <LanguageIcon /> {t.langTitle}

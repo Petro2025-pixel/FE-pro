@@ -2,7 +2,7 @@ import React from 'react';
 import { 
   Container, Typography, Paper, Box, Button, Card, CardMedia, 
   Grid, Divider, Stack, Chip 
-} from '@mui/material'; // Grid добавлен в импорт
+} from '@mui/material'; 
 import { useSelector } from 'react-redux';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LaunchIcon from '@mui/icons-material/Launch';

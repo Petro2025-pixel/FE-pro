@@ -27,11 +27,9 @@ const NotFound = () => {
   const [seconds, setSeconds] = useState(5);
   const navigate = useNavigate();
   
-  // 1. Проверка языка
   const lang = useSelector((state) => state.language.lang);
   const t = translations[lang] || translations.en;
 
-  // 2. Таймер
   useEffect(() => {
     const timer = setInterval(() => {
       setSeconds((prev) => (prev > 0 ? prev - 1 : 0));
@@ -56,7 +54,7 @@ const NotFound = () => {
           alignItems: 'center',
           textAlign: 'center',
           borderRadius: 4,
-          // Использование системных цветов темы для фона
+          
           bgcolor: 'background.paper',
           backgroundImage: (theme) => theme.palette.mode === 'dark' 
             ? 'linear-gradient(145deg, #1e1e1e 0%, #121212 100%)' 

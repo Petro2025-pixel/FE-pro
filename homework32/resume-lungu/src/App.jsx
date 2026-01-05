@@ -5,9 +5,9 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import { Box, Toolbar } from '@mui/material'; // Добавьте Toolbar сюда
+import { Box, Toolbar } from '@mui/material'; 
 import Header from './components/Header/Header'; 
-import Footer from './components/Footer/Footer'; // Импортируем Футер
+import Footer from './components/Footer/Footer'; 
 import Resume from './components/Resume/Resume';
 import Todo from './components/Todo/Todo';
 import Swapi from './components/Swapi/Swapi';
@@ -32,16 +32,14 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <BrowserRouter>
-        {/* Контейнер для всего приложения */}
+       
         <Box sx={{ 
           display: 'flex', 
           flexDirection: 'column', 
-          minHeight: '100vh' // Растягиваем на всю высоту экрана
+          minHeight: '100vh' 
         }}>
           
           <Header />
-          
-          {/* Контентная часть */}
           <Box component="main" sx={{ flex: 1 }}>
             <Toolbar />
             <Routes>
@@ -52,7 +50,7 @@ function App() {
             </Routes>
           </Box>
 
-          <Footer /> {/* Футер будет всегда внизу */}
+          <Footer /> 
           
         </Box>
       </BrowserRouter>

@@ -26,7 +26,7 @@ import HistoryEduIcon from '@mui/icons-material/HistoryEdu';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import TranslateIcon from '@mui/icons-material/Translate';
-import MenuIcon from '@mui/icons-material/Menu'; // Иконка гамбургера
+import MenuIcon from '@mui/icons-material/Menu'; 
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -68,7 +68,7 @@ const Header = () => {
           </Typography>
 
           <Stack direction="row" spacing={1} alignItems="center">
-            {/* Десктопное меню (скрывается на мобильных) */}
+            
             {!isMobile && (
               <Box sx={{ display: 'flex', gap: 1, mr: 2 }}>
                 {navItems.map((item) => (
@@ -99,7 +99,7 @@ const Header = () => {
               {mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
             </IconButton>
 
-            {/* Кнопка гамбургера (появляется только на мобильных) */}
+            
             {isMobile && (
               <IconButton color="inherit" onClick={toggleDrawer(true)} sx={{ ml: 1 }}>
                 <MenuIcon />
@@ -110,7 +110,7 @@ const Header = () => {
       </Container>
 
    <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer(false)}>
-  {/* Этот Box создает отступ, равный высоте AppBar */}
+  
   <Toolbar /> 
   <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
     <List>

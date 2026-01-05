@@ -40,7 +40,7 @@ const Footer = () => {
       sx={{
         py: 6,
         px: 2,
-        mt: 'auto', // Важно для прижатия к низу
+        mt: 'auto', 
         backgroundColor: (theme) =>
           theme.palette.mode === 'light' ? '#f8f9fa' : '#121212',
         borderTop: '1px solid',
@@ -50,7 +50,6 @@ const Footer = () => {
       <Container maxWidth="lg">
         <Grid container spacing={4} justifyContent="space-between">
           
-          {/* Левая колонка: Имя и Описание */}
           <Grid item xs={12} md={5}>
             <Typography variant="h6" color="text.primary" gutterBottom sx={{ fontWeight: 'bold' }}>
               Petro Lungu
@@ -63,7 +62,6 @@ const Footer = () => {
             </Typography>
           </Grid>
 
-          {/* Правая колонка: Соцсети и Почта */}
           <Grid item xs={12} md={4} sx={{ textAlign: { xs: 'left', md: 'right' } }}>
             <Typography variant="h6" color="text.primary" gutterBottom sx={{ fontWeight: 'bold' }}>
               {t.contact}
@@ -106,7 +104,7 @@ const Footer = () => {
 
               <IconButton 
                 component="a" 
-                href="https://t.me/your_telegram" // Можете заменить на свой ник
+                href="https://t.me/your_telegram" 
                 target="_blank" 
                 color="primary"
                 title="Telegram"

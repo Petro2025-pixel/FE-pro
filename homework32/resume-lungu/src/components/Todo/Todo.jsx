@@ -2,7 +2,7 @@ import React from 'react';
 import { 
   Container, Typography, Paper, Box, Button, Card, CardMedia, 
   Grid, Divider, Stack, Chip 
-} from '@mui/material'; // Grid добавлен в импорт
+} from '@mui/material'; 
 import { useSelector } from 'react-redux';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LaunchIcon from '@mui/icons-material/Launch';
@@ -37,7 +37,7 @@ const Todo = () => {
     <Container maxWidth="lg" sx={{ mt: 8, mb: 8 }}>
       <Paper elevation={6} sx={{ p: { xs: 3, md: 6 }, borderRadius: 5, overflow: 'hidden' }}>
         <Grid container spacing={6}>
-          {/* Текстовый блок */}
+          
           <Grid item xs={12} md={6}>
             <Typography variant="h3" component="h1" gutterBottom sx={{ fontWeight: 800 }}>
               {t.title}
@@ -65,7 +65,6 @@ const Todo = () => {
             </Stack>
           </Grid>
 
-          {/* Блок скриншотов */}
           <Grid item xs={12} md={6} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <Card sx={{ borderRadius: 3, boxShadow: 4, mb: 2, width: '100%' }}>
               <CardMedia component="img" image="./images/todo-saga-screenshot-1.png" alt="Desktop" />
