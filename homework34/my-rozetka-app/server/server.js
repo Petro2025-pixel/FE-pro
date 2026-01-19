@@ -13,6 +13,29 @@ app.use(cors());
 app.use(express.json());
 app.use('/images', express.static(path.join(__dirname, 'public/images')));
 
+const generateNextId = (products) => {
+  if (products.length === 0) return 1;
+  
+  const numericIds = products
+    .map(p => p.id)
+    .filter(id => typeof id === 'number' && Number.isInteger(id))
+    .sort((a, b) => a - b);
+  
+  if (numericIds.length === 0) return 1;
+  
+  const maxId = numericIds[numericIds.length - 1];
+  
+  for (let i = 1; i <= maxId; i++) {
+    if (!numericIds.includes(i)) {
+      return i;
+    }
+  }
+  
+  return maxId + 1;
+};
+
+
+
 const readData = () => {
   try {
     if (!fs.existsSync(DB_FILE)) return [];
@@ -41,11 +64,29 @@ const authenticateToken = (req, res, next) => {
 
 app.post('/login', (req, res) => {
   const { username, password } = req.body;
+
   if (username === 'admin' && password === '123') {
-    const token = jwt.sign({ username, role: 'admin' }, SECRET_KEY, { expiresIn: '1h' });
-    return res.json({ success: true, token });
+   
+    const token = jwt.sign({ username }, SECRET_KEY, { expiresIn: '1h' });
+    return res.json({ token });
   }
-  res.status(401).json({ message: 'Invalid credentials' });
+
+  res.status(401).json({ message: 'Incorrect username or password' });
+});
+
+app.post('/products', authenticateToken, (req, res) => {
+  const products = readData();
+  
+  const nextId = generateNextId(products);
+  
+  const newProduct = { 
+    ...req.body, 
+    id: nextId 
+  };
+  
+  products.push(newProduct);
+  writeData(products);
+  res.status(201).json(newProduct);
 });
 
 
@@ -62,22 +103,33 @@ app.post('/products', authenticateToken, (req, res) => {
   res.status(201).json(newProduct);
 });
 
-
 app.put('/products/:id', authenticateToken, (req, res) => {
   let products = readData();
-  const id = parseInt(req.params.id);
-  products = products.map(p => p.id === id ? { ...p, ...req.body } : p);
+  const id = Number(req.params.id); 
+  
+  const index = products.findIndex(p => p.id === id);
+  if (index === -1) {
+    return res.status(404).json({ message: 'Product not found' });
+  }
+  
+  products[index] = { ...products[index], ...req.body, id };
   writeData(products);
   res.json({ success: true });
 });
 
-
 app.delete('/products/:id', authenticateToken, (req, res) => {
+  const id = Number(req.params.id); 
   let products = readData();
-  const id = parseInt(req.params.id);
-  products = products.filter(p => p.id !== id);
-  writeData(products);
-  res.json({ success: true });
+  
+  const exists = products.find(p => p.id === id);
+  if (!exists) {
+    return res.status(404).json({ message: 'Product not found' });
+  }
+
+  const filteredProducts = products.filter(p => p.id !== id);
+  writeData(filteredProducts);
+  
+  res.json({ message: 'The item has been successfully removed', id });
 });
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

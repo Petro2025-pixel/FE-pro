@@ -110,17 +110,19 @@
   {
     "category": "PC",
     "name": "Lenovo DescTop",
-    "quantity": "5",
+    "quantity": "2",
     "price": "27000",
     "image": "/images/laptop-common.jpg",
-    "id": 1768779202652
+    "description": "",
+    "id": 13
   },
   {
     "category": "NoteBook",
-    "name": "Lenovo super game",
-    "quantity": "1",
-    "price": "48000",
+    "name": "Lenovo DescTop",
+    "quantity": "23",
+    "price": "27000",
     "image": "/images/laptop-common.jpg",
-    "id": 1768780022662
+    "description": "",
+    "id": 14
   }
 ]

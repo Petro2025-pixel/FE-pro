@@ -8,21 +8,24 @@ import {
   TableHead,
   TableRow,
   Paper,
-  IconButton
+  IconButton 
 } from '@mui/material';
-import { Edit, Delete, UnfoldMore } from '@mui/icons-material';
+import { Edit, Delete, UnfoldMore, Visibility } from '@mui/icons-material';
 import { useDispatch, useSelector } from 'react-redux';
-
+import { useNavigate } from 'react-router-dom'; 
 import Header from '../Header/Header';
 import ProductsModal from '../ProductsModal/ProductsModal';
 import DeleteModal from '../DeleteModal/DeleteModal';
+import ProductPreviewModal from '../ProductPreviewModal/ProductPreviewModal'; // ← Новый импорт
 
 const DEFAULT_IMAGE = '/images/laptop-common.jpg';
 
 const ProductsTable = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate(); 
   const [openModal, setOpenModal] = useState(false);
   const [openDelete, setOpenDelete] = useState(false);
+   const [openPreview, setOpenPreview] = useState(false); 
   const [selectedProduct, setSelectedProduct] = useState(null);
 
   const products = useSelector(state => state.products?.list || []);
@@ -32,36 +35,47 @@ const ProductsTable = () => {
     setOpenModal(true);
   };
 
-  const handleFormSubmit = (values) => {
-    const formattedValues = {
-      category: values.category,
-      name: values.name,
-      quantity: values.quantity,
-      price: values.price,
-      image: values.image || DEFAULT_IMAGE
-    };
-
-    if (selectedProduct && selectedProduct.id) {
-      dispatch({
-        type: 'UPDATE_PRODUCT',
-        payload: { ...formattedValues, id: selectedProduct.id }
-      });
-    } else {
-      dispatch({
-        type: 'ADD_PRODUCT',
-        payload: formattedValues
-      });
-    }
-
-    setOpenModal(false);
+    const handleOpenPreview = (product) => { 
+    setSelectedProduct(product);
+    setOpenPreview(true);
   };
+
+  const handleFormSubmit = (values) => {
+  
+  const formattedValues = {
+    category: values.category || '',
+    name: values.name || '',
+    quantity: Number(values.quantity) || 0,  
+    price: Number(values.price) || 0,       
+    image: values.image || DEFAULT_IMAGE,
+    description: values.description || ''
+  };
+
+  if (selectedProduct && selectedProduct.id) {
+    dispatch({
+      type: 'EDIT_PRODUCT_REQUEST',
+      payload: { ...formattedValues, id: selectedProduct.id }
+    });
+  } else {
+    dispatch({
+      type: 'ADD_PRODUCT_REQUEST',
+      payload: formattedValues
+    });
+  }
+
+  setOpenModal(false);
+  setSelectedProduct(null);
+};
 
   const confirmDelete = () => {
-    if (selectedProduct) {
-      dispatch({ type: 'DELETE_PRODUCT', payload: selectedProduct.id });
-    }
+  if (selectedProduct) {
+    dispatch({ 
+      type: 'DELETE_PRODUCT_REQUEST', 
+      payload: selectedProduct.id 
+    });
     setOpenDelete(false);
-  };
+  }
+};
 
   return (
     <Box
@@ -75,6 +89,7 @@ const ProductsTable = () => {
       }}
     >
       <Header title="Products Table" onAddClick={() => handleOpenEdit()} />
+        
 
       <TableContainer
         component={Paper}
@@ -125,6 +140,14 @@ const ProductsTable = () => {
                   </TableCell>
                   <TableCell align="right">
                     <Box sx={{ display: 'flex', gap: 1, justifyContent: 'flex-end' }}>
+                                            
+                                            <IconButton 
+                        onClick={() => handleOpenPreview(row)} 
+                        sx={{ color: 'inherit' }}
+                      >
+                        <Visibility />
+                      </IconButton>
+
                       <IconButton onClick={() => handleOpenEdit(row)} sx={{ color: 'inherit' }}>
                         <Edit />
                       </IconButton>
@@ -163,6 +186,12 @@ const ProductsTable = () => {
         open={openDelete}
         handleClose={() => setOpenDelete(false)}
         onConfirm={confirmDelete}
+      />
+    
+      <ProductPreviewModal
+        open={openPreview}
+        handleClose={() => setOpenPreview(false)}
+        product={selectedProduct}
       />
     </Box>
   );

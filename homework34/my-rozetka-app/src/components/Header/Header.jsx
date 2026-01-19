@@ -4,15 +4,19 @@ import { Box, Button, Typography } from '@mui/material';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import { Add, InfoOutlined, LogoutOutlined, PersonOutline } from '@mui/icons-material'; 
 import rozetkaLogo from '../../assets/rozetka2.svg';
+import { useDispatch } from 'react-redux';
+import { logout } from '../../actions/authActions';
 
 const Header = ({ title, onAddClick }) => {
+    const dispatch = useDispatch();
   const navigate = useNavigate();
-  const location = useLocation();
 
   const handleLogout = () => {
-    localStorage.removeItem('token');
-    navigate('/login');
-  };
+  dispatch(logout()); 
+  navigate('/login');
+};
+
+  const location = useLocation();
 
   const handleBack = () => {
     navigate(-1);
