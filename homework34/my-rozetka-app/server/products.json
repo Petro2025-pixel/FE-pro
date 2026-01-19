@@ -1,0 +1,126 @@
+[
+  {
+    "id": 1,
+    "category": "Laptops",
+    "name": "Apple MacBook Air 13 M1 2020",
+    "price": "38999",
+    "quantity": "5",
+    "image": "/images/product-1.jpg",
+    "description": "Apple M1 / 8GB RAM / 256GB SSD"
+  },
+  {
+    "id": 2,
+    "category": "Laptops",
+    "name": "ASUS Vivobook 15 X1504ZA",
+    "price": "19499",
+    "quantity": "10",
+    "image": "/images/product-2.jpg",
+    "description": "Intel Core i3-1215U / 8GB / 256GB SSD"
+  },
+  {
+    "id": 3,
+    "category": "Laptops",
+    "name": "Lenovo IdeaPad Slim 3 15IAN8",
+    "price": "14999",
+    "quantity": "12",
+    "image": "/images/product-3.jpg",
+    "description": "Intel Core i3-N305 / 8GB / 256GB SSD"
+  },
+  {
+    "id": 4,
+    "category": "Laptops",
+    "name": "Acer Aspire 7 A715-76G",
+    "price": "32999",
+    "quantity": "4",
+    "image": "/images/product-4.jpg",
+    "description": "Intel Core i5-12450H / 16GB / RTX 3050"
+  },
+  {
+    "id": 5,
+    "category": "Laptops",
+    "name": "HP Laptop 15s-fq5031ua",
+    "price": "23999",
+    "quantity": "7",
+    "image": "/images/product-5.jpg",
+    "description": "Intel Core i5-1235U / 16GB / 512GB SSD"
+  },
+  {
+    "id": 6,
+    "category": "Laptops",
+    "name": "MSI Katana 17 B12VFK",
+    "price": "47999",
+    "quantity": "3",
+    "image": "/images/product-6.jpg",
+    "description": "Intel Core i7-12650H / RTX 4060 / 144Hz"
+  },
+  {
+    "id": 7,
+    "category": "Laptops",
+    "name": "Gigabyte G5 KF",
+    "price": "35555",
+    "quantity": "6",
+    "image": "/images/product-7.jpg",
+    "description": "Intel Core i5-12500H / RTX 4060 / 16GB"
+  },
+  {
+    "id": 8,
+    "category": "Laptops",
+    "name": "Dell Vostro 3520",
+    "price": "21999",
+    "quantity": "8",
+    "image": "/images/product-8.jpg",
+    "description": "Intel Core i5-1235U / 16GB / 512GB SSD"
+  },
+  {
+    "id": 9,
+    "category": "Laptops",
+    "name": "Samsung Galaxy Book3 Pro",
+    "price": "54999",
+    "quantity": "2",
+    "image": "/images/product-9.jpg",
+    "description": "AMOLED 3K / Intel Core i7 / 16GB"
+  },
+  {
+    "id": 10,
+    "category": "Laptops",
+    "name": "Huawei MateBook D 16 2024",
+    "price": "28999",
+    "quantity": "5",
+    "image": "/images/product-10.jpg",
+    "description": "Intel Core i5-12450H / 16GB / 512GB SSD"
+  },
+  {
+    "id": 11,
+    "category": "Laptops",
+    "name": "Lenovo Legion 5 Pro",
+    "price": "41999",
+    "quantity": "4",
+    "image": "/images/product-11.jpg",
+    "description": "Ryzen 7 / RTX 3060 / 165Hz"
+  },
+  {
+    "id": 12,
+    "category": "Laptops",
+    "name": "ASUS TUF Gaming F15",
+    "price": "39999",
+    "quantity": "6",
+    "image": "/images/product-12.jpg",
+    "description": "Intel Core i7 / RTX 3050"
+  },
+  {
+    "category": "PC",
+    "name": "Lenovo DescTop",
+    "quantity": "5",
+    "price": "27000",
+    "image": "/images/laptop-common.jpg",
+    "id": 1768779202652
+  },
+  {
+    "category": "NoteBook",
+    "name": "Lenovo super game",
+    "quantity": "1",
+    "price": "48000",
+    "image": "/images/laptop-common.jpg",
+    "id": 1768780022662
+  }
+]
