@@ -110,19 +110,10 @@
   {
     "category": "PC",
     "name": "Lenovo DescTop",
-    "quantity": "2",
-    "price": "27000",
+    "quantity": 999,
+    "price": 550,
     "image": "/images/laptop-common.jpg",
     "description": "",
     "id": 13
-  },
-  {
-    "category": "NoteBook",
-    "name": "Lenovo DescTop",
-    "quantity": "23",
-    "price": "27000",
-    "image": "/images/laptop-common.jpg",
-    "description": "",
-    "id": 14
   }
 ]
